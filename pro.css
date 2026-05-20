@@ -1,0 +1,105 @@
+:root {
+    --primary-color: #ff0055;
+    --secondary-color: #00d2ff;
+    --bg-color: #0f0f12;
+    --card-bg: #1a1a24;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  
+  .glow-card {
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  /* The neon border effect */
+  .glow-card::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0.5;
+    transition: opacity 0.5s ease;
+  }
+  
+  /* Card Hover Animation */
+  .glow-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 
+                0 0 20px rgba(255, 0, 85, 0.4), 
+                0 0 40px rgba(0, 210, 255, 0.3);
+  }
+  
+  .glow-card:hover::before {
+    opacity: 1;
+  }
+  
+  .card-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #eee, #ccc);
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .card-desc {
+    font-size: 0.95rem;
+    color: #a0a0b0;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 25px;
+  }
+  
+  .card-btn {
+    margin-top: auto;
+    padding: 12px 30px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid var(--secondary-color);
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+  }
+  
+  .card-btn:hover {
+    background: var(--secondary-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 15px var(--secondary-color);
+  }
+  
